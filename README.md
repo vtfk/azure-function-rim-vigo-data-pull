@@ -48,7 +48,7 @@ Install all tools needed for [local development](https://docs.microsoft.com/en-u
 
 Clone the repo. Install dependencies (```npm install```)
 
-Create a [local.settings.json] (#local.settings.json) file
+Create a [local.settings.json](#local.settings.json) file
 
 Start server
 
