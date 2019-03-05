@@ -1,0 +1,37 @@
+{
+  "name": "rim-vigo-data-pull",
+  "version": "1.0.0",
+  "description": "Pulls data from VIGO, save docs in blob, add to message queue",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && npm audit && ava",
+    "start": "func start"
+  },
+  "author": {
+    "name": "Jonas Enge",
+    "email": "jonas.enge@gmail.com",
+    "url": "https://github.com/maccyber"
+  },
+  "keywords": [
+    "vigo",
+    "azure",
+    "functions"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vtfk/azure-function-vigo-data-pull.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vtfk/azure-function-vigo-data-pull/issues"
+  },
+  "homepage": "https://github.com/vtfk/azure-function-vigo-data-pull#readme",
+  "dependencies": {
+    "rim-service-client": "2.0.1"
+  },
+  "devDependencies": {
+    "ava": "1.2.1",
+    "husky": "1.3.1",
+    "standard": "12.0.1"
+  }
+}
