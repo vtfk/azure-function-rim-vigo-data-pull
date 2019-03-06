@@ -1,4 +1,4 @@
-# azure-function-rim-vigo-data-pull
+# azf-vgo-vigo-data-pull
 
 Azure function that pulls data from [RiM 2
 WebService](https://drive.google.com/file/d/1RnrN7jSZNY4nhk6dRzgdYPXwWifL6EI9/view?usp=sharing)
