@@ -1,6 +1,6 @@
 const rimClient = require('rim-service-client')
 
-async function parseData (data = {}, context) {
+function parseData (data = {}, context) {
   if (!data.HentDataForArkiveringResponseElm) {
     throw Error('Invalid data in vigo response')
   }
