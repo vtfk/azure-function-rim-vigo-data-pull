@@ -93,7 +93,7 @@ The easiest way to make this function run is to setup an app service, configure 
   - Runtime stack -> Node
 
 Configuration for app (Application settings)
-- add values from [local.settings.json](#local.settings.json)
+- add values from [local.settings.json](#localsettingsjson)
 
 - add function
   - Plattform features -> deployment center
@@ -106,7 +106,7 @@ Install all tools needed for [local development](https://docs.microsoft.com/en-u
 
 Clone the repo. Install dependencies (```npm install```)
 
-Create a [local.settings.json](#local.settings.json) file
+Create a [local.settings.json](#localsettingsjson) file
 
 Start server
 
