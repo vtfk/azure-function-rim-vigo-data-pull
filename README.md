@@ -8,6 +8,39 @@ every 1 minute, stores file(s) in blob storage and adds document(s) in message q
 
 ### pull
 
+
+#### Example data from vigo
+
+
+```json
+{
+  "UnikId": "1",
+  "FagsystemNavn": "VIGO",
+  "Fodselsnummer": "01234567890",
+  "Fornavn": "Morkel",
+  "Etternavn": "Mosetuss",
+  "Epost": "morkel_musetuss@hotmail.com",
+  "Mobilnr": "91000000",
+  "Skole": "",
+  "Fylke": "8",
+  "FolkeRegisterAdresse": {
+    "Adresselinje1": "Morgentåkedalen 1000",
+    "Adresselinje2": "",
+    "Postnummmer": "3000",
+    "Poststed": "NOTODDEN"
+  },
+  "Dokumentelement": {
+    "Dokumenttype": "SOKNAD",
+    "Dokumenttittel": "Søknad",
+    "DokumentId": "ADADAXBXZVAE",
+    "Dokumentdato": "2019-01-29T23:00:00.000Z",
+    "Dokumentfil": "JVBERi0xLjQKJeLjz9MKMSAwIG9iago8PC9MZW5ndGggMjc2L04gMy9GaWx0ZXIvRmxhd ...", // Base64 of PDF
+    "Tilhorighet": "8",
+    "Info": "20192020;8026;Nome videregående skole;BAANL2----;Anleggsteknikk;"
+  }
+}
+```
+
 HttpTrigger needs body example
 ```json
 {
