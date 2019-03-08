@@ -44,7 +44,7 @@ function parseData (data = {}, context) {
 
 module.exports = async function (context) {
   const args = rimClient.getDataToArchive({
-    antallElevDokument: process.env.VGO_ANTALL_ELEV_DOKUMENT,
+    antallElevDokument: process.env.VGO_ANTALL_ELEV_DOKUMENT || 1,
     fylke: process.env.VGO_FYLKE
   })
 
