@@ -1,4 +1,4 @@
-# azf-vgo-vigo-data-pull
+# azf-vgo-vigo
 
 Azure function
 
