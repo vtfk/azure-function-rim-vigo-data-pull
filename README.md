@@ -40,14 +40,14 @@ every 1 minute, stores file(s) in blob storage and adds document(s) in message q
 }
 ```
 
+### pull
+
 HttpTrigger needs body example
 ```js
 {
   antallElevDokument: 10
 }
 ```
-
-Responds with: 
 
 ### update-status
 
