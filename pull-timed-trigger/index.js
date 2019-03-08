@@ -1,8 +1,4 @@
 const rimClient = require('rim-service-client')
-const azureQueue = require('azure-queue-add-message')({
-  connectionString: process.env.QUEUE_CONNECTION_STRING,
-  queueName: process.env.QUEUE_NAME
-})
 
 async function parseData (data = {}, context) {
   if (!data.HentDataForArkiveringResponseElm) throw Error('Invalid data in vigo response')
@@ -21,19 +17,20 @@ async function parseData (data = {}, context) {
     `)
   // Everything on it's right place
   } else {
-    documents.forEach(async document => {
+    context.bindings.outputSbQueue = []
+    documents.forEach(document => {
       context.log(`Data funnet: ${document.Fornavn} ${document.Etternavn}`)
       const { DokumentId: id } = document
       const message = {
         id,
-        action: 'add',
-        content: document
+        content: document.map(item => {
+          delete item.Dokumentfil
+          return item
+        })
       }
-      try {
-        await azureQueue(message)
-      } catch (error) {
-        throw error
-      }
+      context.bindings.outputSbQueue.push(message)
+      // TODO: Add to blob context.bindings.outputBlob
+      // cont files = documents.map(item => item.Dokumentfil)
     })
     return JSON.stringify(documents, null, 2)
   }

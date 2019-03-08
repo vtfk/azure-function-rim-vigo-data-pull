@@ -5,6 +5,20 @@
       "type": "timerTrigger",
       "direction": "in",
       "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "outputSbQueue",
+      "type": "serviceBus",
+      "queueName": "testqueue",
+      "connection": "MyServiceBusConnection",
+      "direction": "out"
+    },
+    {
+      "type": "blob",
+      "name": "outputBlob",
+      "path": "outcontainer/{rand-guid}.png",
+      "connection": "STORAGE_CONNECTION",
+      "direction": "out"
     }
   ],
   "disabled": false
