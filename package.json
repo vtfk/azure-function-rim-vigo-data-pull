@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/vtfk/azure-function-vigo-data-pull#readme",
   "dependencies": {
-    "azure-queue-add-message": "2.0.0",
     "rim-service-client": "2.0.1"
   },
   "devDependencies": {
