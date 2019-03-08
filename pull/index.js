@@ -18,13 +18,14 @@ function parseData (data = {}, context) {
   // Everything on it's right place
   } else {
     documents.forEach(document => context.log(`Data funnet: ${document.Fornavn} ${document.Etternavn}`))
-    return documents
+    return JSON.stringify(documents, null, 2)
   }
 }
 
-module.exports = async function (context) {
+module.exports = async function (context, request) {
+  const antallElevDokument = request.body.antallElevDokument || 1
   const args = rimClient.getDataToArchive({
-    antallElevDokument: process.env.VGO_ANTALL_DOKUMENTER,
+    antallElevDokument,
     fylke: process.env.VGO_FYLKE
   })
 
@@ -39,9 +40,17 @@ module.exports = async function (context) {
     const data = await rimClient(options)
     const documents = parseData(data, context)
     context.log(documents)
-    // TODO: Store files in storage blob
-    // TODO: Add documents to message queue
+    context.res = {
+      contentType: 'application/json',
+      status: 200,
+      body: documents
+    }
   } catch (error) {
     context.log.error(error)
+    context.res = {
+      contentType: 'application/json',
+      status: 400,
+      body: { error: error.message }
+    }
   }
 }
