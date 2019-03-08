@@ -31,7 +31,7 @@ async function parseData (data = {}, context) {
       context.log(`${document.Dokumenttype} message added to queue`)
       vigoQueue.push(message)
 
-      // Add file to blob
+      // Add file to blob if "document.Dokumentfil" is not empty
       const { Dokumentfil: file, DokumentId: id } = document
       if (file) {
         context.log(`${document.id} file added to blob`)
