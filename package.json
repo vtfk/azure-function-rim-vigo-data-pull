@@ -1,7 +1,7 @@
 {
-  "name": "rim-vigo-data-pull",
+  "name": "azf-vgo-vigo",
   "version": "1.0.0",
-  "description": "Pulls data from VIGO, save docs in blob, add to message queue",
+  "description": "Azure function that communicates with vigo-ws",
   "main": "index.js",
   "scripts": {
     "test": "standard && npm audit && ava",
@@ -20,12 +20,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vtfk/azure-function-vigo-data-pull.git"
+    "url": "git+https://github.com/vtfk/azf-vgo-vigo.git"
   },
   "bugs": {
-    "url": "https://github.com/vtfk/azure-function-vigo-data-pull/issues"
+    "url": "https://github.com/vtfk/azf-vgo-vigo/issues"
   },
-  "homepage": "https://github.com/vtfk/azure-function-vigo-data-pull#readme",
+  "homepage": "https://github.com/vtfk/azf-vgo-vigo#readme",
   "dependencies": {
     "rim-service-client": "2.0.1"
   },
