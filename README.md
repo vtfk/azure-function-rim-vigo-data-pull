@@ -71,7 +71,8 @@ HttpTrigger needs body example
     "VGO_URL": "https://vigo.dummy.allthethings.win",
     "VGO_USERNAME": "username",
     "VGO_PASSWORD": "password",
-    "VGO_FYLKE": "8"
+    "VGO_FYLKE": "8",
+    "VGO_ANTALL_ELEV_DOKUMENT": "1"
   }
 }
 ```
