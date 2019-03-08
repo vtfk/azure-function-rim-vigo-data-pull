@@ -21,7 +21,7 @@ async function parseData (data = {}, context) {
     `)
   // Everything on it's right place
   } else {
-    let { vigoQueue, vigoBlob } = context.bindings.vigoQueue
+    let { vigoQueue, vigoBlob } = context.bindings
     vigoQueue = []
     documents.forEach(document => {
       context.log(`Data funnet: ${document.Fornavn} ${document.Etternavn}`)
