@@ -9,7 +9,7 @@ every 1 minute, stores file(s) in blob storage and adds document(s) in message q
 ### pull
 
 HttpTrigger needs body example
-```json
+```js
 {
   antallElevDokument: 10
 }
