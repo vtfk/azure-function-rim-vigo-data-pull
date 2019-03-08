@@ -32,8 +32,10 @@ async function parseData (data = {}, context) {
 
       // Add file to blob
       const { Dokumentfil: file, DokumentId: id } = document
-      context.log(`${document.id} file added to blob`)
-      context.bindings.vigoBlob[id] = file
+      if (file) {
+        context.log(`${document.id} file added to blob`)
+        context.bindings.vigoBlob[id] = file
+      }
     })
     return JSON.stringify(documents, null, 2)
   }
