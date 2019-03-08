@@ -1,21 +1,21 @@
 {
   "bindings": [
     {
-      "name": "vigoPullTimer",
+      "name": "vigoTimer",
       "type": "timerTrigger",
-      "direction": "in",
-      "schedule": "0 */1 * * * *"
+      "schedule": "0 */1 * * * *",
+      "direction": "in"
     },
     {
-      "name": "vigoPullOutputQueue",
+      "name": "vigoQueue",
       "type": "serviceBus",
-      "queueName": "testqueue",
-      "connection": "MyServiceBusConnection",
+      "queueName": "pullQueue",
+      "connection": "SERVICE_BUS_CONNECTION",
       "direction": "out"
     },
     {
+      "name": "vigoBlob",
       "type": "blob",
-      "name": "vigoPullOutputBlob",
       "path": "outcontainer/{name}.pdf",
       "connection": "STORAGE_CONNECTION",
       "direction": "out"
