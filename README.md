@@ -1,16 +1,15 @@
 # azf-vgo-vigo-data-pull
 
-Azure function that pulls data from [RiM 2
-WebService](https://drive.google.com/file/d/1RnrN7jSZNY4nhk6dRzgdYPXwWifL6EI9/view?usp=sharing)
-every 1 minute, stores file(s) in blob storage and adds document(s) in message queue.
+Azure function
 
 ## functions
 
-### pull
+### pull-timed-trigger
 
+Pulls data from [RiM 2 WebService](https://drive.google.com/file/d/1RnrN7jSZNY4nhk6dRzgdYPXwWifL6EI9/view?usp=sharing)
+every 1 minute, stores file(s) in blob storage and adds document(s) in message queue.
 
 #### Example data from vigo
-
 
 ```json
 {
@@ -41,14 +40,14 @@ every 1 minute, stores file(s) in blob storage and adds document(s) in message q
 }
 ```
 
+### pull
+
 HttpTrigger needs body example
 ```js
 {
   antallElevDokument: 10
 }
 ```
-
-Responds with: 
 
 ### update-status
 
