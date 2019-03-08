@@ -13,6 +13,7 @@ module.exports = async function (context, request) {
   try {
     const data = await rimClient(options)
     context.log('Status sent to vigo')
+    context.log(data)
     context.res = {
       contentType: 'application/json',
       status: 200,

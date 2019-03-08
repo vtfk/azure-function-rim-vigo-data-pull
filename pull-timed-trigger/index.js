@@ -9,18 +9,18 @@ function parseData (data = {}, context) {
   }
 
   const { Feilmelding: error, Elevelement: documents } = data.HentDataForArkiveringResponseElm
-  // No documents found
   if (error.FeilId === '0' && error.Feiltype !== '') {
+    // No documents found
     throw Error('No new documentes found in vigo. Exiting...')
-  // Other errors
   } else if (error.FeilId !== '0') {
+    // Other errors
     throw Error(`
       FeilId: ${error.FeilId}\n
       Feiltype: ${error.Feiltype}\n
       DetaljertBeskrivelse: ${error.DetaljertBeskrivelse}
     `)
-  // Everything on it's right place
   } else {
+    // Everything on it's right place
     let { vigoQueue, vigoBlob } = context.bindings
     vigoQueue = []
     documents.forEach(document => {
@@ -31,9 +31,9 @@ function parseData (data = {}, context) {
       context.log(`${document.Dokumenttype} message added to queue`)
       vigoQueue.push(message)
 
-      // Add file to blob if "document.Dokumentfil" is not empty
       const { Dokumentfil: file, DokumentId: id } = document
       if (file) {
+        // Add file to blob if "document.Dokumentfil" is set
         context.log(`${document.id} file added to blob`)
         vigoBlob[id] = file
       }
