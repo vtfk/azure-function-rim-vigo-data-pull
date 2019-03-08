@@ -23,10 +23,7 @@ async function parseData (data = {}, context) {
       const { DokumentId: id } = document
       const message = {
         id,
-        content: document.map(item => {
-          delete item.Dokumentfil
-          return item
-        })
+        content: document.map(({ Dokumentfil, ...item }) => item) // Removes base64 file since message queue is max 64kb
       }
       context.bindings.outputSbQueue.push(message)
       // TODO: Add to blob context.bindings.outputBlob
