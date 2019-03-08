@@ -29,7 +29,7 @@ function parseData (data = {}, context) {
 
       // Add message to queue
       context.log(`${document.Dokumenttype} message added to queue`)
-      vigoQueue.push(message)
+      vigoQueue.push(JSON.stringify(message))
 
       const { Dokumentfil: file, DokumentId: id } = document
       if (file) {
