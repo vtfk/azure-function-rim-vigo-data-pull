@@ -1,8 +1,12 @@
 const rimClient = require('rim-service-client')
 
 async function parseData (data = {}, context) {
-  if (!data.HentDataForArkiveringResponseElm) throw Error('Invalid data in vigo response')
-  if (!data.HentDataForArkiveringResponseElm.Elevelement) throw Error('Invalid data in vigo reponse')
+  if (!data.HentDataForArkiveringResponseElm) {
+    throw Error('Invalid data in vigo response')
+  }
+  if (!data.HentDataForArkiveringResponseElm.Elevelement) {
+    throw Error('Invalid data in vigo reponse')
+  }
 
   const { Feilmelding: error, Elevelement: documents } = data.HentDataForArkiveringResponseElm
   // No documents found
