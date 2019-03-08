@@ -27,10 +27,12 @@ async function parseData (data = {}, context) {
       const { Dokumentfil, ...message } = document // Removes base64 file since message queue is max 64kb
 
       // Add message to queue
+      context.log(`${document.Dokumenttype} message added to queue`)
       context.bindings.vigoQueue.push(message)
 
       // Add file to blob
       const { Dokumentfil: file, DokumentId: id } = document
+      context.log(`${document.id} file added to blob`)
       context.bindings.vigoBlob[id] = file
     })
     return JSON.stringify(documents, null, 2)
