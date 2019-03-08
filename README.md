@@ -1,6 +1,6 @@
 # azf-vgo-vigo
 
-Azure function
+Azure function that communicates with [RiM 2 WebService](https://drive.google.com/file/d/1RnrN7jSZNY4nhk6dRzgdYPXwWifL6EI9/view?usp=sharing)
 
 ## functions
 
