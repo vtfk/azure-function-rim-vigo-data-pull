@@ -109,6 +109,12 @@ Clone the repo. Install dependencies (```npm install```)
 
 Create a [local.settings.json](#localsettingsjson) file
 
+Install extentions
+
+```
+$ func extentions install
+```
+
 Start server
 
 ```
