@@ -58,7 +58,6 @@ module.exports = async function (context) {
     const data = await rimClient(options)
     const documents = parseData(data, context)
     context.log(documents)
-    context.done()
   } catch (error) {
     context.log.error(error)
   }
