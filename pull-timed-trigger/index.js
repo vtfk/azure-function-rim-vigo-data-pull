@@ -12,7 +12,7 @@ function parseData (data = {}, context) {
   if (error.FeilId === '0' && error.Feiltype !== '') {
     // No documents found
     throw Error('No new documentes found in vigo. Exiting...')
-  } else if (error.FeilId !== '0') {
+  } else if (error.FeilId !== 'string') {
     // Other errors
     throw Error(`
       FeilId: ${error.FeilId}\n
@@ -21,21 +21,20 @@ function parseData (data = {}, context) {
     `)
   } else {
     // Everything on it's right place
-    let { vigoQueue, vigoBlob } = context.bindings
-    vigoQueue = []
+    context.bindings.vigoQueue = []
     documents.forEach(document => {
       context.log(`Data funnet: ${document.Fornavn} ${document.Etternavn}`)
-      const { Dokumentfil, ...message } = document // Removes base64 file since message queue is max 64kb
+      const { Dokumentelement: { Dokumentfil }, ...message } = document // Removes base64 file since message queue is max 64kb
 
       // Add message to queue
-      context.log(`${document.Dokumenttype} message added to queue`)
-      vigoQueue.push(JSON.stringify(message))
+      context.log(`${document.Dokumentelement.Dokumenttype} message added to queue`)
+      context.bindings.vigoQueue.push(message)
 
-      const { Dokumentfil: file, DokumentId: id } = document
+      const { Dokumentfil: file, DokumentId: id } = document.Dokumentelement
       if (file) {
         // Add file to blob if "document.Dokumentfil" is set
-        context.log(`${document.id} file added to blob`)
-        vigoBlob[id] = file
+        context.log(`${id} file added to blob`)
+        context.bindings.vigoBlob = file
       }
     })
     return JSON.stringify(documents, null, 2)
@@ -59,6 +58,7 @@ module.exports = async function (context) {
     const data = await rimClient(options)
     const documents = parseData(data, context)
     context.log(documents)
+    context.done()
   } catch (error) {
     context.log.error(error)
   }
