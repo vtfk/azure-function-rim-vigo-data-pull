@@ -9,7 +9,7 @@
     {
       "name": "vigoQueue",
       "type": "serviceBus",
-      "queueName": "pullQueue",
+      "queueName": "la-vgo-vigo-dev",
       "connection": "SERVICE_BUS_CONNECTION",
       "direction": "out"
     },
