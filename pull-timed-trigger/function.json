@@ -14,7 +14,7 @@
       "direction": "out"
     },
     {
-      "name": "vigo-blob",
+      "name": "vigoBlob",
       "type": "blob",
       "path": "outcontainer/{name}.pdf",
       "connection": "STORAGE_CONNECTION",
