@@ -13,7 +13,7 @@ function parseData (data = {}, context) {
   if (error.FeilId === '0' && error.Feiltype !== '') {
     // No documents found
     throw Error('No new documentes found in vigo. Exiting...')
-  } else if (error.FeilId !== 'string') {
+  } else if (error.FeilId !== '0') {
     // Other errors
     throw Error(`
       FeilId: ${error.FeilId}\n
