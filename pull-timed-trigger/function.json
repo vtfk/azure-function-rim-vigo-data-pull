@@ -7,16 +7,9 @@
       "direction": "in"
     },
     {
-      "name": "vigoQueue",
-      "type": "serviceBus",
-      "queueName": "la-vgo-vigo-dev",
-      "connection": "SERVICE_BUS_CONNECTION",
-      "direction": "out"
-    },
-    {
       "name": "vigoBlob",
       "type": "blob",
-      "path": "vigo-blob/{rand-guid}.txt",
+      "path": "vigo-blob/{rand-guid}.json",
       "connection": "STORAGE_CONNECTION",
       "direction": "out"
     }

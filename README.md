@@ -7,7 +7,7 @@ Azure function that communicates with [RiM 2 WebService](https://drive.google.co
 ### pull-timed-trigger
 
 Pulls data from [RiM 2 WebService](https://drive.google.com/file/d/1RnrN7jSZNY4nhk6dRzgdYPXwWifL6EI9/view?usp=sharing)
-every 1 minute, stores file(s) in blob storage and adds document(s) in message queue.
+every 1 minute, stores documents(s) in blob storage as JSON.
 
 #### Example data from vigo
 

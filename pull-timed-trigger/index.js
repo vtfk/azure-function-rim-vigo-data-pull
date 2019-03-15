@@ -9,6 +9,7 @@ function parseData (data = {}, context) {
   }
 
   const { Feilmelding: error, Elevelement: documents } = data.HentDataForArkiveringResponseElm
+
   if (error.FeilId === '0' && error.Feiltype !== '') {
     // No documents found
     throw Error('No new documentes found in vigo. Exiting...')
@@ -21,21 +22,10 @@ function parseData (data = {}, context) {
     `)
   } else {
     // Everything on it's right place
-    context.bindings.vigoQueue = []
     documents.forEach(document => {
       context.log(`Data funnet: ${document.Fornavn} ${document.Etternavn}`)
-      const { Dokumentelement: { Dokumentfil }, ...message } = document // Removes base64 file since message queue is max 64kb
-
-      // Add message to queue
-      context.log(`${document.Dokumentelement.Dokumenttype} message added to queue`)
-      context.bindings.vigoQueue.push(message)
-
-      const { Dokumentfil: file, DokumentId: id } = document.Dokumentelement
-      if (file) {
-        // Add file to blob if "document.Dokumentfil" is set
-        context.log(`${id} file added to blob`)
-        context.bindings.vigoBlob = file
-      }
+      context.log('File added to blob')
+      context.bindings.vigoBlob = JSON.stringify(document, null, 2)
     })
     return JSON.stringify(documents, null, 2)
   }
