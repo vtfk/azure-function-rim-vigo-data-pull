@@ -9,7 +9,7 @@
     {
       "name": "vigoBlob",
       "type": "blob",
-      "path": "vigo-blob/{rand-guid}.json",
+      "path": "vigo-blob/queue/{rand-guid}.json",
       "connection": "STORAGE_CONNECTION",
       "direction": "out"
     }
