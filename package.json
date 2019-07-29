@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/vtfk/azf-vgo-vigo#readme",
   "dependencies": {
-    "rim-service-client": "2.0.1"
+    "rim-service-client": "3.0.0"
   },
   "devDependencies": {
     "ava": "1.4.1",
